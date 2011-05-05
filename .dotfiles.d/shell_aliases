@@ -23,7 +23,6 @@ alias shaanxiiot_user="rdesktop -u agrienv_user -p npulab505 124.115.26.159"
 alias del='mv -t ~/.local/share/Trash/files '
 alias makectag="ectags -R"
 alias makecscope="cscope -Rbq"
-alias vimr="gvim --remote"
 alias emax="emacs23-nox"
 
 

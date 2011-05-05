@@ -32,9 +32,14 @@ ipyhttp() {
 # send files to remote gvim
 vimrr() {
     if [[ $1 == GVIM* ]]; then
-        gvim --remote --servername $@
+        for i in $@
+        do
+            if [[ $i != GVIM* ]]; then
+                gvim --servername $1 --remote $i
+            fi
+        done
     else
-        gvim --remote --servername GVIM $@
+        gvim --remote $@
     fi
 }
 

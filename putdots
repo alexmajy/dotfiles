@@ -1,0 +1,30 @@
+#!/bin/bash
+
+DOTSFROM=`pwd`
+DOTSD="$HOME/.dotfiles.d"
+SCRIPTSD="$HOME/.dotfiles.d/scripts"
+
+echo "#### Make sure you have backed up your dots before updating!  ####"
+echo
+read -p "Update dots under *$HOME* from *$DOTSFROM* ? <y/n>"
+
+if [ "$REPLY" != "y" ]; then
+    echo
+    echo "#### Dots under $HOME haven't been updated. ####"
+    exit 1
+fi
+
+for i in .Xdefaults .dotfiles.d .zshrc
+do
+    echo "updating $HOME/$i"
+    cp -rf $DOTSFROM/$i $HOME
+done
+
+echo "grabing vcprompt"
+mkdir -p $SCRIPTSD
+curl -s https://github.com/xvzf/vcprompt/raw/master/bin/vcprompt > $SCRIPTSD/vcprompt
+chmod 755 $SCRIPTSD/vcprompt
+
+echo
+echo "#### Done! ####"
+

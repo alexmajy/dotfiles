@@ -1,0 +1,30 @@
+# aliases for bash, zsh
+
+# daily aliases
+alias cp='cp -i'
+alias df='df -h'
+alias du='du -h'
+alias cgrep='grep --color=auto -n -I -r'
+alias ls='ls -F --color=auto'
+alias ll='ls -lh'
+alias la='ls -A'
+alias l='ls -CF'
+alias mv='mv -i'
+alias rm='rm -i'
+
+# SSH and rdesktop aliases
+alias sshduron="ssh alexmajy@192.168.1.10"
+alias sshiphone="ssh root@192.168.1.15"
+alias sshipad="ssh root@192.168.1.16"
+alias shannxiiot_admin="rdesktop -u administrator -p 81175050 124.115.26.159"
+alias shaanxiiot_user="rdesktop -u agrienv_user -p npulab505 124.115.26.159"
+
+# miscs alias
+alias del='mv -t ~/.local/share/Trash/files '
+alias makectag="ectags -R"
+alias makecscope="cscope -Rbq"
+alias vimr="gvim --remote"
+alias emax="emacs23-nox"
+
+
+

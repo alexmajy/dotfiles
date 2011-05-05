@@ -1,0 +1,32 @@
+#--------------------------------------------------------------------
+# Color man pages
+#
+# usages: source the file in your .bashrc or whatever
+#
+# 256-color format
+# {fg/bg};5;{color code}
+# fg: 38, bg:48
+#
+# ref
+# http://crunchbanglinux.org/forums/topic/2403/color-man-pages/
+# http://www.pixelbeat.org/docs/terminal_colours/
+#--------------------------------------------------------------------
+
+# my favorite 256-color scheme for man
+export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
+export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
+export LESS_TERMCAP_me=$'\E[0m'           # end mode
+export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
+export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
+export LESS_TERMCAP_ue=$'\E[0m'           # end underline
+export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
+
+# an alternative 8-color scheme
+#export LESS_TERMCAP_mb=$'\E[01;31m'      # begin blinking
+#export LESS_TERMCAP_md=$'\E[01;31m'      # begin bold
+#export LESS_TERMCAP_me=$'\E[0m'          # end mode
+#export LESS_TERMCAP_se=$'\E[0m'          # end standout-mode                 
+#export LESS_TERMCAP_so=$'\E[01;44;33m'   # begin standout-mode - info box                              
+#export LESS_TERMCAP_ue=$'\E[0m'          # end underline
+#export LESS_TERMCAP_us=$'\E[01;32m'      # begin underline
+

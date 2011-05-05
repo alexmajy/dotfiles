@@ -1,0 +1,17 @@
+# daily stuff
+export PATH="$HOME/scripts:$PATH:/usr/local/avr/bin"
+export EDITOR=vim
+
+# java and python
+export PYTHONSTARTUP=''
+export JAVA_HOME="/usr/lib/jvm/java-6-sun"
+export CLASSPATH="$CLASSPATH:/usr/share/antlr/antlr-3.1.jar:."
+
+# input method
+export XMODIFIERS="@im=fcitx"
+export XIM=fcitx
+export XIM_PROGRAM=fcitx
+
+# special setting for awesome windows manager
+export AWT_TOOLKIT=MToolkit
+ 

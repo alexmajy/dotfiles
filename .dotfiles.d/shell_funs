@@ -1,0 +1,71 @@
+#!/bin/bash
+# shell routines for bash and zsh
+
+# vpn control
+mvpn() {
+    case $1 in
+        'stop') 
+           PID=`ps aux | awk '{if ($1=="root" && $11=="openvpn") print $2}'`
+           echo "Kill openvpn with pid:$PID"
+           sudo kill -9 $PID;;
+        'start') 
+           echo "Start openvpn in background with '/home/alexmajy/vpn/Automatic.ovpn'"
+           cd /home/alexmajy/vpn
+           sudo openvpn --config Automatic.ovpn;;
+        *) echo "usage:"
+           echo "mvpn          # check the status"
+           echo "mvpn stop     # stop vpn service"
+           echo "mvpn start    # start vpn service"
+           echo ""
+           ps aux | awk '{if ($1=="root" && $11=="openvpn") print $0}';;
+    esac
+}
+
+# convert long to human readable time
+timeconv() { date -d @$1 +"%Y-%m-%d %T" }
+
+# handy http server
+ipyhttp() {
+    python -c "import SimpleHTTPServer;SimpleHTTPServer.test()"
+}
+
+# send files to remote gvim
+vimrr() {
+    if [[ $1 == GVIM* ]]; then
+        gvim --remote --servername $@
+    else
+        gvim --remote --servername GVIM $@
+    fi
+}
+
+# misc functions
+mbc() { echo "scale=4; $@" | bc }
+mps() { ps aux | cgrep $@ }
+
+# control for VGA
+dsmode() {
+    case $1 in
+        'vo') xrandr --output VGA1 --auto --output LVDS1 --off;;
+        'vu') xrandr --output VGA1 --auto --output LVDS1 --auto --below VGA1;;
+        'vb') xrandr --output VGA1 --auto --output LVDS1 --auto --above VGA1;;
+        'vr') xrandr --output VGA1 --auto --output LVDS1 --auto --left-of VGA1;;
+        'vl') xrandr --output VGA1 --auto --output LVDS1 --auto --right-of VGA1;;
+        'm')xrandr --output LVDS1 --auto --output VGA1 --auto --same-as LVDS1;;
+        'reset')xrandr --output LVDS1 --auto --output VGA1 --off;;
+        *) echo "usage:"
+           echo "dsmode v(ga)o(nly) | v(ga)u(p) | v(ga)b(elow) | v(ga)r(ight) | v(ga)l(eft) | m(irrow) | reset";;
+    esac
+}
+
+# install the ipa for iPad
+iipa() {
+    scp $1 root@192.168.1.16:/User/Documents/Installous/Downloads
+}
+
+# tinyos setups
+tos1() { source /opt/tinyos-1.x/tinyos.sh }
+tos21() { source /opt/tinyos-2.1.0/tinyos.sh }
+tos2x() { source /opt/tinyos-2.x/tinyos.sh }
+tos2xx() { source /opt/tinyos-2.x.svn/tinyos.sh }
+
+

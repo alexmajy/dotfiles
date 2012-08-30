@@ -1,0 +1,5 @@
+#!/bin/bash
+
+DEST=/home/alexmajy/Documents/vbox
+
+cp -r $@ $DEST

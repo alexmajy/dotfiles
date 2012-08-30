@@ -1,0 +1,15 @@
+#!/bin/bash
+
+DEST=/home/alexmajy/research/paper_repos
+
+if [ "$NAUTILUS_SCRIPT_CURRENT_URI" == "file://$DEST" ]; then
+    furi="`echo $NAUTILUS_SCRIPT_SELECTED_URIS | tr -d \n`"
+    bibfile="file={$furi},"
+else
+    mv $1 $DEST
+    bibfile="file={file://$DEST/$1},"
+fi
+
+echo -n $bibfile|/usr/bin/xsel -i -b
+#
+

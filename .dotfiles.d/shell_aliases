@@ -16,8 +16,7 @@ alias rm='rm -i'
 alias sshduron="ssh alexmajy@192.168.1.10"
 alias sshiphone="ssh root@192.168.1.15"
 alias sshipad="ssh root@192.168.1.16"
-alias shannxiiot_admin="rdesktop -u administrator -p 81175050 124.115.26.159"
-alias shaanxiiot_user="rdesktop -u agrienv_user -p npulab505 124.115.26.159"
+
 
 # miscs alias
 alias del='mv -t ~/.local/share/Trash/files '
